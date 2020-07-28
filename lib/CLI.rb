@@ -13,10 +13,12 @@ class CommandLineInterface
 
     def call
         user_input = ""
+        until user_input == "exit"
         puts "Where would you like to go today?"
         puts "Please tell our scientists if you would like to go forwards or backwards in time."
+        puts "To quit, type 'exit'."
         user_input = gets.chomp
-        if user_input == "forwards"
+        if user_input == "forwards" 
             puts "You're in the future"
         elsif user_input == "forward"
             puts "You're in the future"
