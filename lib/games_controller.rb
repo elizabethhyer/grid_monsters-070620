@@ -1,6 +1,6 @@
 require_relative "../config/environment.rb"
 
-class CommandLineInterface
+class Books::GamesController
 
     def greeting 
         puts "Hello User, welcome to the grid."
@@ -29,7 +29,6 @@ class CommandLineInterface
         new_name = monster_names_forward.sample
     end 
 
-
     def monsterfy_names_backward
         puts "Please tell us your name."
         user_name = gets.chomp
@@ -53,13 +52,17 @@ class CommandLineInterface
         puts "writers."
     end 
 
+    def get_books_by_genre
+
+    end 
+
     def list_books
         list = books.all
         list.each_with_index {|book, num| puts "#{num +1}. #{book.title}"}
     end 
 
     def display_info
-        
+
     end 
 
     def call
@@ -68,22 +71,11 @@ class CommandLineInterface
         sleep 3
         new_location_greeting
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
         # until user_input == "exit"
         # puts "To quit, type 'exit'."
             
         # else raise InputError
     end 
-
-
 
 # class InputError < StandardError
 #    puts "Please choose where, in time, you would like to go."

@@ -1,6 +1,6 @@
 require_relative "../config/environment.rb"
 
-class Books
+class Books::Books
 
     attr_accessor :title, :description
 

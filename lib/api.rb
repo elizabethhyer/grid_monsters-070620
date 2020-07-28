@@ -3,7 +3,7 @@ require_relative "../config/environment.rb"
 # key = "AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g"
 # response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject:#{subject}&key=#{key}")
 
-class API
+class Books::API
 
     @@key = "AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g"
 
