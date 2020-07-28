@@ -17,4 +17,8 @@ class Books
         books_hash.each {|key, value| self.send(("#{key}="), value)}
     end
 
+    def self.all
+        @@all
+    end 
+
 end 
