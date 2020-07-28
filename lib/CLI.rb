@@ -35,6 +35,11 @@ class CommandLineInterface
     end 
 
 
+    def monsterfy_names_backward
+        user_name = ""
+        monster_names_backward = ["Count #{user_name}, Bloodthirsty Lord of the Night", "#{user_name}, Child of the Grave", "#{user_name}, Disciple of the Wolf and Moon", "#{user_name}, Wyvern of the Blue Dragonflight", "#{user_name}, Caller of Cthulu", "#{user_name}, Leader of the Deathly Coven", "#{user_name}, Butcher of the Bay"]
+        user_name = gets.chomp
+    end 
 
 
 
