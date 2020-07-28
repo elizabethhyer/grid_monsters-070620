@@ -10,17 +10,22 @@ class CommandLineInterface
         puts "Let the games begin"
     end 
 
-    def monsterfy_names_forward(user_name)
+    def monsterfy_names_forward
         user_name = ""
         monster_names_forward = ["#{user_name}, Child of the Machines", "#{user_name}, Invader from the Nether Realms", "#{user_name}, Human Upgrade v.2.0", "#{user_name}...do you know that you are a Replicant?", "#{user_name}, Star Hunter"]
+        puts "Please tell us your name."
         user_name = gets.chomp
+        new_name = monster_names_forward.sample
     end 
 
 
-    def monsterfy_names_backward(user_name)
+    def monsterfy_names_backward
         user_name = ""
         monster_names_backward = ["Count #{user_name}, Bloodthirsty Lord of the Night", "#{user_name}, Child of the Grave", "#{user_name}, Disciple of the Wolf and Moon", "#{user_name}, Wyvern of the Blue Dragonflight", "#{user_name}, Caller of Cthulu", "#{user_name}, Leader of the Deathly Coven", "#{user_name}, Butcher of the Bay"]
         user_name = gets.chomp
+        puts "Please tell us your name."
+        user_name = gets.chomp
+        new_name = monster_names_backward.sample
     end 
 
     def new_location_welcome(new_location, new_name)
@@ -40,17 +45,13 @@ class CommandLineInterface
         puts "To quit, type 'exit'."
         user_input = gets.chomp
         if user_input == "forwards" 
-            puts "Please tell us your name."
-            new_name = monster_names_forward(user_name)
+            
         elsif user_input == "forward"
-            puts "Please tell us your name."
-            new_name = monster_names_forward(user_name)
+            
         elsif user_input == "backwards"
-            puts "Please tell us your name."
-            new_name = monster_names_backward(user_name)
+          
         elsif user_input == "backward"
-            puts "Please tell us your name."
-            new_name = monster_names_backward(user_name)
+            
         # else raise InputError
         end 
     end 
