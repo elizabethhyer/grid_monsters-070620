@@ -38,10 +38,11 @@ class CommandLineInterface
     end 
 
     def new_location_greeting
-        if change_location == "The Future"
+        new_location = change_location
+        if new_location == "The Future"
             location = "The Future" 
             name = monsterfy_names_forward
-        else change_location == "The Horrifying Past"
+        else new_location == "The Horrifying Past"
             location = "The Horrifying Past"
             name = monsterfy_names_backward
         end 
