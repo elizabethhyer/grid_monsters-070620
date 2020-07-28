@@ -1,3 +1,5 @@
+require_relative "../environment.rb"
+
 class Books
 
     attr_accessor :title, :description
@@ -20,5 +22,5 @@ class Books
     def self.all
         @@all
     end 
-
+    
 end 

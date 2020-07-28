@@ -1,5 +1,5 @@
-require 'pry'
-require 'httparty'
+require_relative "../config/environment.rb"
+
 # key = "AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g"
 # response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject:#{subject}&key=#{key}")
 
@@ -7,13 +7,13 @@ class API
 
     @@key = "AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g"
 
-   def self.get_books(subject, key)
+   def self.get_books(subject)
      books = []
-     books_hash = {}
-    response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject:#{subject}&key=#{key}")
-    response.each do |book|
-             [books_hash]:title = book["items"][0]["volumeInfo"]["title"]
-             [books_hash]:description = book["items"][0]["volumeInfo"]["description"] 
+    response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject:#{subject}&key=#{@@key}")
+    response["items"].each do |book|
+        books_hash = {}
+             books_hash[:title] = book["volumeInfo"]["title"]
+             books_hash[:description] = book["volumeInfo"]["description"] 
      books << books_hash
     end 
      books
@@ -21,3 +21,6 @@ class API
 
 
 end 
+
+#Add if statement that will take care of subjects being passed in that Google books does not recognize 
+#Add functionality to only return list of ten books
