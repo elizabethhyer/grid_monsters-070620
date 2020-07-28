@@ -41,6 +41,14 @@ class CommandLineInterface
         user_name = gets.chomp
     end 
 
+    def new_location_welcome(new_location, new_name)
+        puts "Welcome to #{new_location}, #{new_name}..."
+        sleep 2
+        puts "You have entered a realm of Monsters and Demons and most importantly..."
+        sleep 3
+        puts "writers."
+    end 
+
 
 
 # class InputError < StandardError
@@ -48,3 +56,4 @@ class CommandLineInterface
 # end 
 
 end 
+
