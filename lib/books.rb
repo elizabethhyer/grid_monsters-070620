@@ -9,8 +9,12 @@ class Books
         @@all << self
     end 
 
-    def self.create_from_collection(books_array)
-        books_array.each {|book| self.new(book)}
+    def self.create_from_collection(books)
+        books.each {|book| self.new(book)}
     end 
+
+    def add_book_attributes(books_hash)
+        books_hash.each {|key, value| self.send(("#{key}="), value)}
+    end
 
 end 
