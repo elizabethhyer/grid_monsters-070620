@@ -4,23 +4,23 @@ class CommandLineInterface
 
     def greeting 
         puts "Hello User, welcome to the grid."
-        sleep 2
+        sleep 1
         puts "We've been waiting for you."
-        sleep 3
+        sleep 1
         puts "Let the games begin"
     end 
 
     def change_location
         puts "Please tell our scientists whether you would like to go forwards or backwards in time."
         user_input = gets.chomp
-        if user_input == "forwards" || user_input == "forward"
+        if user_input == "forwards" || user_input == "forward" 
             new_location = "The Future"
         elsif user_input == "backwards" || user_input == "backward"
             new_location = "The Horrifying Past"
         # else raise InputError
         end 
-    end 
-
+        new_location
+    end
 
     def monsterfy_names_forward
         puts "Please tell us your name."
@@ -37,29 +37,40 @@ class CommandLineInterface
         new_name = monster_names_backward.sample
     end 
 
-    def new_location_welcome
+    def new_location_greeting
         if change_location == "The Future"
             location = "The Future" 
-            name = monster_names_forward
+            name = monsterfy_names_forward
         else change_location == "The Horrifying Past"
             location = "The Horrifying Past"
-            name = monster_names_backward
+            name = monsterfy_names_backward
+        end 
         puts "Welcome to #{location}, #{name}..."
-        sleep 2
+        sleep 1
         puts "You have entered a realm of Monsters and Demons and most importantly..."
-        sleep 3
+        sleep 1
         puts "writers."
     end 
 
     def call
-        greeting    
-        sleep 5
         user_input = ""
-        until user_input == "exit"
-        puts "To quit, type 'exit'."
+        greeting    
+        sleep 3
+        new_location_greeting
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        # until user_input == "exit"
+        # puts "To quit, type 'exit'."
             
         # else raise InputError
-        end 
     end 
 
 
@@ -70,3 +81,5 @@ class CommandLineInterface
 
 end 
 
+something = CommandLineInterface.new
+something.new_location_greeting
