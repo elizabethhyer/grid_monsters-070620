@@ -53,6 +53,15 @@ class CommandLineInterface
         puts "writers."
     end 
 
+    def list_books
+        list = books.all
+        list.each_with_index {|book, num| puts "#{num +1}. #{book.title}"}
+    end 
+
+    def display_info
+        
+    end 
+
     def call
         user_input = ""
         greeting    
@@ -81,6 +90,3 @@ class CommandLineInterface
 # end 
 
 end 
-
-something = CommandLineInterface.new
-something.new_location_greeting
