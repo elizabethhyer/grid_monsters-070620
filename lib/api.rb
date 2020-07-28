@@ -1,20 +1,23 @@
 require 'pry'
+require 'httparty'
+# key = "AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g"
+# response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject:#{subject}&key=#{key}")
 
 class API
 
-    attr_accessor :title, :genre, :info
+    @@key = "AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g"
 
-    def initialize(title, genre, info)
-        @title = title
-        @genre = genre
-        @info = info
-    end
-
-    def self.get_books
-        response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=search+terms", {
-            headers: {"Authorization" => "Bearer #{ENV['AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g']}"},
-        })
-        monster_books = response["books"]
+   def self.get_books(subject, key)
+    books = []
+    response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject:#{subject}&key=#{key}")
+    response.each do |book|
+        books_hash = { :title => book["items"][0]["volumeInfo"]["title"], 
+                       :description => book["items"][0]["volumeInfo"]["description"] }
+    books << books_hash
     end 
+    books
+   end 
+
 
 end 
+
