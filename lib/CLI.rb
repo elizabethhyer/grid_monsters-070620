@@ -13,14 +13,14 @@ class CommandLineInterface
     def change_location
         puts "Please tell our scientists whether you would like to go forwards or backwards in time."
         user_input = gets.chomp
-        if user_input == "forwards" 
-            
-        elsif user_input == "forward"
-            
-        elsif user_input == "backwards"
-          
-        elsif user_input == "backward"
+        if user_input == "forwards" || user_input == "forward"
+            new_location = "The Future"
+        elsif user_input == "backwards" || user_input == "backward"
+            new_location = "The Horrifying Past"
+        # else raise InputError
+        end 
     end 
+
 
     def monsterfy_names_forward
         puts "Please tell us your name."
@@ -38,8 +38,13 @@ class CommandLineInterface
     end 
 
     def new_location_welcome
-        if 
-        puts "Welcome to #{new_location}, #{name}..."
+        if change_location == "The Future"
+            location = "The Future" 
+            name = monster_names_forward
+        else change_location == "The Horrifying Past"
+            location = "The Horrifying Past"
+            name = monster_names_backward
+        puts "Welcome to #{location}, #{name}..."
         sleep 2
         puts "You have entered a realm of Monsters and Demons and most importantly..."
         sleep 3
