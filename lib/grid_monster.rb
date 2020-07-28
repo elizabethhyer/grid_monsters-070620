@@ -14,17 +14,14 @@ class Monsters
         puts "Please tell our scientists if you would like to go forwards or backwards in time."
         user_input = gets.chomp
         if user_input == "forwards"
-            # _____
             puts "You're in the future"
         elsif user_input == "forward"
-            # _______
             puts "You're in the future"
         elsif user_input == "backwards"
-            # _______
             puts "You're in the past"
         elsif user_input == "backward"
             puts "You're in the past"
-        else raise InputError
+        # else raise InputError
         end 
     end 
 
@@ -33,8 +30,8 @@ class Monsters
 
 
 
-class InputError < StandardError
-   puts "Please choose where, in time, you would like to go."
-end 
+# class InputError < StandardError
+#    puts "Please choose where, in time, you would like to go."
+# end 
 
 end 
