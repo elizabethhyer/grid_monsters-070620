@@ -28,6 +28,16 @@ class CommandLineInterface
         end 
     end 
 
+    def monsterfy_names_forward
+        user_name = ""
+        monster_names_forward = ["#{user_name}, Child of the Machines", "#{user_name}, Invader from the Nether Realms", "#{user_name}, Human Upgrade v.2.0", "#{user_name}...do you know that you are a Replicant?", "#{user_name}, Star Hunter"]
+        user_name = gets.chomp
+    end 
+
+
+
+
+
 # class InputError < StandardError
 #    puts "Please choose where, in time, you would like to go."
 # end 
