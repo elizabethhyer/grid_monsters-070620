@@ -1,4 +1,5 @@
 require_relative "../config/environment.rb"
+require 'pry'
 
 class Books::Books
 
@@ -9,12 +10,6 @@ class Books::Books
     def initialize(books)
         books.each {|key, value| self.send(("#{key}="), value)}
         @@all << self
-    end 
-
-    def get_books
-        # respose = Books::API.new.get_books(input)
-        Books::API.get_books
-        all
     end 
 
     def self.create_from_collection(books)

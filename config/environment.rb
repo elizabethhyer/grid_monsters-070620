@@ -7,6 +7,6 @@ require_relative "../lib/api.rb"
 require_relative "../lib/books.rb"
 require_relative "../lib/game_controller.rb"
 
-module Books
-    class Error < StandardError; end 
-end 
+# module Books
+#     class Error < StandardError; end 
+# end 

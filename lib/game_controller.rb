@@ -67,14 +67,34 @@ class Books::GamesController
         puts "writers."
     end 
 
-    def list_books
-        list = books.all
-        list.each_with_index {|book, num| puts "#{num +1}. #{book.title}"}
+    def get_books(input)
+        respose = Books::API.new.get_books(input)
+        self.current_book = Books::Books.new(response)
+        self.prompt_user
     end 
 
-    def display_info
+    def self.prompt_user
+        puts "Would you like to read a book by one of our lovely Monsters?"
+        puts "Please enter 'yes' to read the book, or 'no' to exit this universe and be sucked into a black hole"
+        user_input = gets.chomp
+        if user_input == "yes" || user_input == "Yes"
+            display_info
+        elsif user_input == "no" || user_input == "No"
+            #exit
+        else
+            puts "The option you have chosen does not seem to exist in this universe, please try again."
+            self.prompt_user
+        end 
+    end
 
-    end 
+    # def list_books
+    #     list = books.all
+    #     list.each_with_index {|book, num| puts "#{num +1}. #{book.title}"}
+    # end 
+
+    # def display_info
+
+    # end 
 
     def call
         grid_monster_greeting
@@ -90,5 +110,6 @@ end
 # Questions:
 # Permission denied when attempting to bin/run_game
 # Input error faulty
+# user_input method faulty
 
 
