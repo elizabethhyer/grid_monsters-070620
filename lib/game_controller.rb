@@ -128,20 +128,23 @@ class GameController
         puts " "
         puts "We hope you like that book. Please leave a five star review on GhoulBooks.com, or face the consequences."
         puts " "
-        puts "Please type 'exit' to exit this universe and be suck into a black hole, or 'turn back' to go back to the beginning of the game."
+        puts "Please type 'exit' to exit this universe and be sucked into a black hole, or 'turn back' to go back to the beginning of the game."
         puts " "
         puts "Alternatively you may type 'see books' to return to the list of books."
         user_input = gets.chomp
         if user_input == "exit" || user_input == "Exit"
             warn "You will now become a part of the lost souls that make up the black hole."
-                exit 3
+            sleep 3
+                exit 
         elsif user_input == "turn back" || user_input == "Turn back"
                 self.call 
         elsif user_input == "see books" || user_input == "See books"
                 self.list_books
+                sleep 5
                 self.loop_back_or_exit
         else 
             puts "I do not understand. Please type 'exit' or 'turn back'." 
+                sleep 5
                 self.loop_back_or_exit
         end 
     end 
