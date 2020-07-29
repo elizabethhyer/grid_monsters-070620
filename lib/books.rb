@@ -1,7 +1,7 @@
 require_relative "../config/environment.rb"
 require 'pry'
 
-class Books::Books
+class Books
 
     attr_accessor :title, :description
 

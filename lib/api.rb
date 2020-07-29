@@ -3,12 +3,12 @@ require_relative "../config/environment.rb"
 # key = "AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g"
 # response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject:#{subject}&key=#{key}")
 
-class Books::API
+class API
 
     @@key = "AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g"
 
    def self.get_books(subject)
-     books = []
+    books = []
     response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject:#{subject}&key=#{@@key}")
     response["items"].each do |book|
         books_hash = {}

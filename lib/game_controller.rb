@@ -1,6 +1,6 @@
 require_relative "../config/environment.rb"
 
-class Books::GamesController
+class GamesController
 
     def grid_monster_greeting
         puts  "       ______     _     __   __  ___                 __                      "                
@@ -30,7 +30,10 @@ class Books::GamesController
             new_location = "The Future"
         elsif user_input == "backwards" || user_input == "backward"
             new_location = "The Horrifying Past"
-        # else raise InputError
+        else 
+            puts "You have chosen to exist outside of the confines of time. We ask you kindly to chose a different fate, or face the consequences at your own peril."
+            sleep 3
+            change_location
         end 
         new_location
     end
@@ -68,8 +71,8 @@ class Books::GamesController
     end 
 
     def get_books(input)
-        respose = Books::API.new.get_books(input)
-        self.current_book = Books::Books.new(response)
+        respose = API.new.get_books(input)
+        self.current_book = Books.new(response)
         self.prompt_user
     end 
 
@@ -80,9 +83,11 @@ class Books::GamesController
         if user_input == "yes" || user_input == "Yes"
             display_info
         elsif user_input == "no" || user_input == "No"
-            #exit
+            warn "You will know become a part of the lost souls that make up the black hole."
+            exit 3
         else
             puts "The option you have chosen does not seem to exist in this universe, please try again."
+            sleep 4
             self.prompt_user
         end 
     end
@@ -111,5 +116,6 @@ end
 # Permission denied when attempting to bin/run_game
 # Input error faulty
 # user_input method faulty
+# Will books class serve to create and store all the book info needed in the game?
 
 
