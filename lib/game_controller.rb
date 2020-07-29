@@ -2,7 +2,15 @@ require_relative "../config/environment.rb"
 
 class Books::GamesController
 
-    def greeting 
+    def grid_monster_greeting
+        puts  "       ______     _     __   __  ___                 __                      "                
+        puts  "      / ____/____(_)___/ /  /  |/  /___  ____  _____/ /____  __________      "
+        puts  "     / / __/ ___/ / __  /  / /|_/ / __ \/ __ \/ ___/ __/ _ \/ ___/ ___/      "
+        puts  "    / /_/ / /  / / /_/ /  / /  / / /_/ / / / (__  ) /_/  __/ /  (__  )       " 
+        puts  "    \____/_/  /_/\__,_/  /_/  /_/\____/_/ /_/____/\__/\___/_/  /____/        "  
+    end 
+                                                                        
+    def user_greeting 
         puts "Hello User, welcome to the grid."
         sleep 1
         puts "We've been waiting for you."
@@ -10,9 +18,13 @@ class Books::GamesController
         puts "Let the games begin"
     end 
 
+    def gets_user_input
+        user_input = gets.chomp
+    end 
+
     def change_location
         puts "Please tell our scientists whether you would like to go forwards or backwards in time."
-        user_input = gets.chomp
+        gets_user_input
         if user_input == "forwards" || user_input == "forward" 
             new_location = "The Future"
         elsif user_input == "backwards" || user_input == "backward"
@@ -24,15 +36,15 @@ class Books::GamesController
 
     def monsterfy_names_forward
         puts "Please tell us your name."
-        user_name = gets.chomp
-        monster_names_forward = ["#{user_name}, Child of the Machines", "#{user_name}, Invader from the Nether Realms", "#{user_name}, Human Upgrade v.2.0", "#{user_name}...do you know that you are a Replicant?", "#{user_name}, Star Hunter"]
+        gets_user_input
+        monster_names_forward = ["#{user_input}, Child of the Machines", "#{user_input}, Invader from the Nether Realms", "#{user_input}, Human Upgrade v.2.0", "#{user_input}...do you know that you are a Replicant?", "#{user_input}, Star Hunter"]
         new_name = monster_names_forward.sample
     end 
 
     def monsterfy_names_backward
         puts "Please tell us your name."
-        user_name = gets.chomp
-        monster_names_backward = ["Count #{user_name}, Bloodthirsty Lord of the Night", "#{user_name}, Child of the Grave", "#{user_name}, Disciple of the Wolf and Moon", "#{user_name}, Wyvern of the Blue Dragonflight", "#{user_name}, Caller of Cthulu", "#{user_name}, Leader of the Deathly Coven", "#{user_name}, Butcher of the Bay"]
+        gets_user_input
+        monster_names_backward = ["Count #{user_input}, Bloodthirsty Lord of the Night", "#{user_input}, Child of the Grave", "#{user_input}, Disciple of the Wolf and Moon", "#{user_input}, Wyvern of the Blue Dragonflight", "#{user_input}, Caller of Cthulu", "#{user_input}, Leader of the Deathly Coven", "#{user_input}, Butcher of the Bay"]
         new_name = monster_names_backward.sample
     end 
 
@@ -52,7 +64,8 @@ class Books::GamesController
         puts "writers."
     end 
 
-    def get_books_by_genre
+    def get_books(input)
+        respose = Books::API.new.get_books(input)
 
     end 
 
@@ -66,8 +79,8 @@ class Books::GamesController
     end 
 
     def call
-        user_input = ""
-        greeting    
+        grid_monster_greeting
+        user_greeting    
         sleep 3
         new_location_greeting
 
@@ -77,8 +90,10 @@ class Books::GamesController
         # else raise InputError
     end 
 
-# class InputError < StandardError
-#    puts "Please choose where, in time, you would like to go."
-# end 
-
 end 
+
+
+
+
+
+

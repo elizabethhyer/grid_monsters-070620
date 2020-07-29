@@ -2,4 +2,4 @@
 
 require_relative '../config/environment'
 
-CommandLineInterface.new.call
+Books::GamesController.new.call
