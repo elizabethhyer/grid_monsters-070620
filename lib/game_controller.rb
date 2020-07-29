@@ -1,21 +1,22 @@
 class GameController
 
     def call
-        # self.grid_monster_greeting
-        # self.user_greeting    
-        # sleep 2
-        # self.new_location_greeting
+        self.grid_monster_greeting
+        self.user_greeting    
+        sleep 2
+        self.new_location_greeting
         self.get_books
         self.list_books
     end 
 
     def grid_monster_greeting
         puts  " "
-        puts  "       ______     _     __   __  ___                 __                      "                
-        puts  "      / ____/____(_)___/ /  /  |/  /___  ____  _____/ /____  __________      "
-        puts  "     / / __/ ___/ / __  /  / /|_/ / __ \/ __ \/ ___/ __/ _ \/ ___/ ___/      "
-        puts  "    / /_/ / /  / / /_/ /  / /  / / /_/ / / / (__  ) /_/  __/ /  (__  )       " 
-        puts  "    \____/_/  /_/\__,_/  /_/  /_/\____/_/ /_/____/\__/\___/_/  /____/        "  
+        puts  '       ______     _     __   __  ___                 __                      '                
+        puts  '      / ____/____(_)___/ /  /  |/  /___  ____  _____/ /____  __________      '
+        puts  '     / / __/ ___/ / __  /  / /|_/ / __ \/ __ \/ ___/ __/ _ \/ ___/ ___/      '
+        puts  '    / /_/ / /  / / /_/ /  / /  / / /_/ / / / (__  ) /_/  __/ /  (__  )       ' 
+        puts  '    \____/_/  /_/\__,_/  /_/  /_/\____/_/ /_/____/\__/\___/_/  /____/        '  
+        puts  " "
         puts  " "
     end 
                                                                         
@@ -27,9 +28,11 @@ class GameController
         puts " "
         sleep 1
         puts "Let the games begin"
+        puts " "
     end 
 
     def change_location
+        puts " "
         puts "Please tell our scientists whether you would like to go forwards or backwards in time."
         puts " "
         user_input = gets.chomp
@@ -50,6 +53,7 @@ class GameController
     end
 
     def monsterfy_names_forward
+        puts " "
         puts "Please tell us your name."
         puts " "
         user_input = gets.chomp
@@ -58,6 +62,7 @@ class GameController
     end 
 
     def monsterfy_names_backward
+        puts " "
         puts "Please tell us your name."
         puts " "
         user_input = gets.chomp
@@ -74,6 +79,7 @@ class GameController
             location = "The Horrifying Past"
             name = monsterfy_names_backward
         end 
+        puts " "
         puts "Welcome to #{location}, #{name}..."
         puts " "
         sleep 1
@@ -103,6 +109,7 @@ class GameController
     end 
 
     def display_description
+        puts " "
         puts "Would you like to read a book by one of our lovely Monsters?"
         puts " "
         puts "Please type the name of the book you would like to read."
@@ -117,21 +124,24 @@ class GameController
         end 
     end 
 
-    # def prompt_user
-    #     puts "Would you like to read a book by one of our lovely Monsters?"
-    #     puts " "
-    #     puts "Please enter 'yes' to read the book, or 'no' to exit this universe and be sucked into a black hole"
-    #     user_input = gets.chomp
-    #     if user_input == "yes" || user_input == "Yes"
-    #         display_info
-    #     elsif user_input == "no" || user_input == "No"
-    #         warn "You will now become a part of the lost souls that make up the black hole."
-    #         exit 3
-    #     else
-    #         puts "The option you have chosen does not seem to exist in this universe, please try again."
-    #         sleep 3
-    #         prompt_user
-    #     end 
-    # end
+    def loop_back_or_exit
+        puts " "
+        puts "We hope you like that book. Please leave a five star review on GhoulBooks.com, or face the consequences."
+        puts " "
+        puts "Would you like to exit now, or read another book?"
+        puts " "
+        puts "Please type 'exit' to exit this universe and be suck into a black hole, or 'turn back' to go back to the main menu."
+        puts " "
+        user_input = gets.chomp
+        if user_input == "exit" || user_input == "Exit"
+            warn "You will now become a part of the lost souls that make up the black hole."
+                exit 3
+        elsif user_input == "turn back" || user_input == "Turn back"
+                call 
+        else 
+            puts "I do not understand. Please type 'exit' or 'turn back'." 
+                loop_back_or_exit
+        end 
+    end 
 
 end 
