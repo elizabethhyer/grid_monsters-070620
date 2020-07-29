@@ -68,6 +68,10 @@ class GamesController
         puts "You have entered a realm of Monsters and Demons and most importantly..."
         sleep 1
         puts "writers."
+        sleep 1
+        puts "The monsters in your new world have written some books for you to review."
+        sleep 1
+        puts "Please enjoy a selection of their finest works."
     end 
 
     def get_books(input)
@@ -75,6 +79,15 @@ class GamesController
         self.current_book = Books.new(response)
         self.prompt_user
     end 
+
+    # def list_books
+    #     list = books.all
+    #     list.each_with_index {|book, num| puts "#{num +1}. #{book.title}"}
+    # end 
+
+    # def display_info
+
+    # end 
 
     def self.prompt_user
         puts "Would you like to read a book by one of our lovely Monsters?"
@@ -87,25 +100,17 @@ class GamesController
             exit 3
         else
             puts "The option you have chosen does not seem to exist in this universe, please try again."
-            sleep 4
+            sleep 3
             self.prompt_user
         end 
     end
-
-    # def list_books
-    #     list = books.all
-    #     list.each_with_index {|book, num| puts "#{num +1}. #{book.title}"}
-    # end 
-
-    # def display_info
-
-    # end 
 
     def call
         grid_monster_greeting
         user_greeting    
         sleep 3
         new_location_greeting
+        get_books
     end 
 
 end 
@@ -114,7 +119,6 @@ end
 
 # Questions:
 # Permission denied when attempting to bin/run_game
-# Input error faulty
 # user_input method faulty
 # Will books class serve to create and store all the book info needed in the game?
 
