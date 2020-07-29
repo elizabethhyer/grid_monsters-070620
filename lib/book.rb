@@ -23,12 +23,4 @@ class Book
         @@all
     end 
 
-    # def self.destroy_all
-    #     self.all.clear
-    # end 
-
-     # def add_book_attributes(books_hash)
-    #   books_hash.each {|key, value| self.send(("#{key}="), value)}
-    # end
-    
 end 

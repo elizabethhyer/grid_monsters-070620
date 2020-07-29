@@ -1,6 +1,3 @@
-require 'httparty'
-require 'pry'
-
 class API
 
     @@key = "AIzaSyBrv_BBsu0AVAxjRBa2PWQFKN5CBKTQu5g"
