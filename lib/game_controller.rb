@@ -1,13 +1,22 @@
-require_relative "../config/environment.rb"
+class GameController
 
-class GamesController
+    def call
+        self.grid_monster_greeting
+        self.user_greeting    
+        sleep 2
+        self.new_location_greeting
+        self.get_books
+        self.list_books
+    end 
 
     def grid_monster_greeting
+        puts  " "
         puts  "       ______     _     __   __  ___                 __                      "                
         puts  "      / ____/____(_)___/ /  /  |/  /___  ____  _____/ /____  __________      "
         puts  "     / / __/ ___/ / __  /  / /|_/ / __ \/ __ \/ ___/ __/ _ \/ ___/ ___/      "
         puts  "    / /_/ / /  / / /_/ /  / /  / / /_/ / / / (__  ) /_/  __/ /  (__  )       " 
         puts  "    \____/_/  /_/\__,_/  /_/  /_/\____/_/ /_/____/\__/\___/_/  /____/        "  
+        puts  " "
     end 
                                                                         
     def user_greeting 
@@ -18,13 +27,8 @@ class GamesController
         puts "Let the games begin"
     end 
 
-    # def gets_user_input
-    #     user_input = gets.chomp
-    # end 
-
     def change_location
         puts "Please tell our scientists whether you would like to go forwards or backwards in time."
-        # gets_user_input
         user_input = gets.chomp
         if user_input == "forwards" || user_input == "forward" 
             new_location = "The Future"
@@ -40,7 +44,6 @@ class GamesController
 
     def monsterfy_names_forward
         puts "Please tell us your name."
-        # gets_user_input
         user_input = gets.chomp
         monster_names_forward = ["#{user_input}, Child of the Machines", "#{user_input}, Invader from the Nether Realms", "#{user_input}, Human Upgrade v.2.0", "#{user_input}...do you know that you are a Replicant?", "#{user_input}, Star Hunter"]
         new_name = monster_names_forward.sample
@@ -48,14 +51,13 @@ class GamesController
 
     def monsterfy_names_backward
         puts "Please tell us your name."
-        # gets_user_input
         user_input = gets.chomp
         monster_names_backward = ["Count #{user_input}, Bloodthirsty Lord of the Night", "#{user_input}, Child of the Grave", "#{user_input}, Disciple of the Wolf and Moon", "#{user_input}, Wyvern of the Blue Dragonflight", "#{user_input}, Caller of Cthulu", "#{user_input}, Leader of the Deathly Coven", "#{user_input}, Butcher of the Bay"]
         new_name = monster_names_backward.sample
     end 
 
     def new_location_greeting
-        new_location = change_location
+        new_location = self.change_location
         if new_location == "The Future"
             location = "The Future" 
             name = monsterfy_names_forward
@@ -74,22 +76,23 @@ class GamesController
         puts "Please enjoy a selection of their finest works."
     end 
 
-    def get_books(input)
-        respose = API.new.get_books(input)
-        self.current_book = Books.new(response)
-        self.prompt_user
+    def get_books
+        response = API.get_books
+        response.each do |book|
+            Book.new(book)
+        end 
     end 
 
-    # def list_books
-    #     list = books.all
-    #     list.each_with_index {|book, num| puts "#{num +1}. #{book.title}"}
-    # end 
+    def list_books
+       Book.all.each_with_index {|book, num| puts "#{num +1}. #{book.title}"}
+       self.prompt_user
+    end 
 
     # def display_info
-
+        # puts "#{Book.description}"
     # end 
 
-    def self.prompt_user
+    def prompt_user
         puts "Would you like to read a book by one of our lovely Monsters?"
         puts "Please enter 'yes' to read the book, or 'no' to exit this universe and be sucked into a black hole"
         user_input = gets.chomp
@@ -101,25 +104,8 @@ class GamesController
         else
             puts "The option you have chosen does not seem to exist in this universe, please try again."
             sleep 3
-            self.prompt_user
+            prompt_user
         end 
     end
 
-    def call
-        grid_monster_greeting
-        user_greeting    
-        sleep 3
-        new_location_greeting
-        get_books
-    end 
-
 end 
-
-
-
-# Questions:
-# Permission denied when attempting to bin/run_game
-# user_input method faulty
-# Will books class serve to create and store all the book info needed in the game?
-
-
