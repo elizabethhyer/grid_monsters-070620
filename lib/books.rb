@@ -11,6 +11,12 @@ class Books::Books
         @@all << self
     end 
 
+    def get_books
+        # respose = Books::API.new.get_books(input)
+        Books::API.get_books
+        all
+    end 
+
     def self.create_from_collection(books)
         books.each {|book| self.new(book)}
     end 
