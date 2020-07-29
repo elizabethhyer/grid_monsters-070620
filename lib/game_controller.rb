@@ -7,6 +7,7 @@ class GameController
         self.new_location_greeting
         self.get_books
         self.list_books
+        self.loop_back_or_exit
     end 
 
     def grid_monster_greeting
@@ -32,7 +33,6 @@ class GameController
     end 
 
     def change_location
-        puts " "
         puts "Please tell our scientists whether you would like to go forwards or backwards in time."
         puts " "
         user_input = gets.chomp
@@ -118,7 +118,7 @@ class GameController
         if book == nil
             puts "The option you have chosen does not seem to exist in this universe, please try again."
             sleep 3
-            display_description
+            self.display_description
         else 
            puts book.description
         end 
@@ -128,19 +128,21 @@ class GameController
         puts " "
         puts "We hope you like that book. Please leave a five star review on GhoulBooks.com, or face the consequences."
         puts " "
-        puts "Would you like to exit now, or read another book?"
+        puts "Please type 'exit' to exit this universe and be suck into a black hole, or 'turn back' to go back to the beginning of the game."
         puts " "
-        puts "Please type 'exit' to exit this universe and be suck into a black hole, or 'turn back' to go back to the main menu."
-        puts " "
+        puts "Alternatively you may type 'see books' to return to the list of books."
         user_input = gets.chomp
         if user_input == "exit" || user_input == "Exit"
             warn "You will now become a part of the lost souls that make up the black hole."
                 exit 3
         elsif user_input == "turn back" || user_input == "Turn back"
-                call 
+                self.call 
+        elsif user_input == "see books" || user_input == "See books"
+                self.list_books
+                self.loop_back_or_exit
         else 
             puts "I do not understand. Please type 'exit' or 'turn back'." 
-                loop_back_or_exit
+                self.loop_back_or_exit
         end 
     end 
 
