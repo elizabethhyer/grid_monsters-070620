@@ -128,13 +128,17 @@ class GameController
         end 
     end 
 
-    def loop_back_or_exit
+    def loop_back_or_exit_text
         puts " "
         puts "We hope you like that book. Please leave a five star review on GhoulBooks.com, or face the consequences."
         puts " "
         puts "Please type 'exit' to exit this universe and be sucked into a black hole, or 'turn back' to go back to the beginning of the game."
         puts " "
         puts "Alternatively you may type 'see books' to return to the list of books."
+    end 
+
+    def loop_back_or_exit
+        self.loop_back_or_exit_text
         user_input = gets.chomp
         if user_input == "exit" || user_input == "Exit"
             warn "You will now become a part of the lost souls that make up the black hole."
