@@ -112,19 +112,27 @@ class GameController
         puts " "
         puts "Would you like to read a book by one of our lovely Monsters?"
         puts " "
-        puts "Please type the name of the book you would like to read."
+        puts "Please type the name or number of the book you would like to read."
     end 
 
     def display_description
         self.display_description_text
-        user_input = gets.chomp
-        book = Book.find_by_name(user_input)
-        if book == nil
+        user_input = gets.chomp 
+        if user_input.to_i == 0
+            book = Book.find_by_name(user_input)
+        elsif (1..Book.all.length).include?(user_input.to_i)
+            book = Book.all[user_input.to_i - 1]
+        else 
             puts "The option you have chosen does not seem to exist in this universe, please try again."
             sleep 3
             self.display_description
+        end
+        if book
+            puts book.description
         else 
-           puts book.description
+            puts "The option you have chosen does not seem to exist in this universe, please try again."
+            sleep 3
+            self.display_description
         end 
     end 
 
@@ -145,6 +153,7 @@ class GameController
             sleep 3
                 exit 
         elsif user_input == "turn back" || user_input == "Turn back"
+                Book.all.clear
                 self.call 
         elsif user_input == "see books" || user_input == "See books"
                 self.list_books
