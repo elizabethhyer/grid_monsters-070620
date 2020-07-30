@@ -45,6 +45,7 @@ Please tell our scientists whether you would like to go forwards or backwards in
 Forwards
 
 Please tell us your name.
+
 Elizabeth
 
 Welcome to The Future, Elizabeth, Invader from the Nether Realms...
@@ -70,7 +71,9 @@ Please enjoy a selection of their finest works.
 Would you like to read a book by one of our lovely Monsters?
 
 Please type the name or number of the book you would like to read.
+
 4
+
 What if everyone actually was famous for exactly fifteen minutes? What if Joey Ramone could save the world? What if the spiritual enlightenment of saints and sages was a sexually transmitted disease? These are the fictions. Neon signs that predict a city's future. Companies paying people to insult their clients online. Edgar Allan Poe's New York is still alive, but not well. These are the facts. And they say speculative fiction and personal essays don't belong in the same book. Whether in the glossy pages of the men's magazine Razor or the stolen reams of office supplies that make up the zine The Whirligig, the writing of Nick Mamatas is your hitchhiker's guide to the new, and very weird, millennium. Don't know where the world is headed? Nick does and it's 3000 miles per hour in every direction at once.
 
 We hope you like that book. Please leave a five star review on GhoulBooks.com, or face the consequences.
