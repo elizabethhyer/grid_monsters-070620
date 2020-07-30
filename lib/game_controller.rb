@@ -3,7 +3,7 @@ class GameController
     def call
         self.grid_monster_greeting
         self.user_greeting    
-        sleep 2
+        sleep 1
         self.new_location_greeting
         self.get_books 
         self.list_books
@@ -39,7 +39,7 @@ class GameController
             new_location = "The Horrifying Past"
         else 
             puts "\nYou have chosen to exist outside of the confines of time. We ask you kindly to chose a different fate, or face the consequences at your own peril."
-            sleep 3
+            sleep 1
             change_location
         end 
         new_location
@@ -98,25 +98,20 @@ class GameController
 
     def display_description
         self.display_description_text
-        user_input = gets.chomp 
+        user_input = gets.chomp
         if user_input.to_i == 0  
-            book = Book.find_by_name(user_input)
-            if book == nil 
-                puts "\nPlease type the name exactly, or use the appropriate number."
-                self.display_description
-            else 
-                puts book.description
-            end
+            book = Book.find_by_name(user_input.split.map(&:capitalize).join(' ')) 
+            # puts book.description
         elsif (1..Book.all.length).include?(user_input.to_i)
             book = Book.all[user_input.to_i - 1]
-            puts book.description
+            # puts book.description
         else 
-        # elsif book == nil
             puts "\nThe option you have chosen does not seem to exist in this universe, please try again."
-            sleep 3
+            sleep 1
             self.display_description
         end
-    end 
+        puts book.description
+    end
 
     def loop_back_or_exit_text
         puts "\nWe hope you like that book. Please leave a five star review on GhoulBooks.com, or face the consequences."
@@ -129,20 +124,28 @@ class GameController
         user_input = gets.chomp
         if user_input == "exit" || user_input == "Exit"
             warn "\nYou will now become a part of the lost souls that make up the black hole."
-            sleep 3
+            sleep 1
                 exit 
         elsif user_input == "turn back" || user_input == "Turn back"
                 Book.all.clear
                 self.call 
         elsif user_input == "see books" || user_input == "See books"
                 self.list_books
-                sleep 5
+                sleep 1
                 self.loop_back_or_exit
         else 
             puts "\nI do not understand. Please type 'exit', 'turn back' or 'see books'." 
-                sleep 5
+                sleep 1
                 self.loop_back_or_exit
         end 
     end 
 
 end 
+
+
+# if book == nil 
+            #     puts "\nPlease type the name exactly, or use the appropriate number."
+            #     self.display_description
+            # else 
+            #     puts book.description
+            # end
