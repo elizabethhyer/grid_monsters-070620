@@ -80,7 +80,8 @@ Please type 'exit' to exit this universe and be sucked into a black hole, or 'tu
 Alternatively you may type 'see books' to return to the list of books.
 exit
 
-You will now become a part of the lost souls that make up the black hole.```
+You will now become a part of the lost souls that make up the black hole.
+```
 
 ## Contributing
 
@@ -88,9 +89,9 @@ Bug reports and pull requests are welcome on Github at https://github.com/elizab
 
 ## Authors 
 
-Elizabeth Hyer - All work 
+Elizabeth Hyer - All work - [ElizabethHyer](https://github.com/elizabethhyer)
 
 ## Acknowledgments
 
-I would like to acknowledge Google Books for continuing to offer their API free of charge.
+I would like to acknowledge [Google Books](https://developers.google.com/books) for continuing to offer their API free of charge.
 
