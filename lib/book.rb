@@ -4,8 +4,8 @@ class Book
 
     @@all = []
 
-    def initialize(book)
-        book.each {|key, value| self.send(("#{key}="), value)}
+    def initialize(book_hash)
+        book_hash.each {|key, value| self.send(("#{key}="), value)}
         @@all << self
     end 
 
