@@ -5,7 +5,7 @@ class GameController
         self.user_greeting    
         sleep 2
         self.new_location_greeting
-        self.get_books
+        self.get_books 
         self.list_books
         self.loop_back_or_exit
     end 
@@ -108,11 +108,15 @@ class GameController
        self.display_description
     end 
 
-    def display_description
+    def display_description_text
         puts " "
         puts "Would you like to read a book by one of our lovely Monsters?"
         puts " "
         puts "Please type the name of the book you would like to read."
+    end 
+
+    def display_description
+        self.display_description_text
         user_input = gets.chomp
         book = Book.find_by_name(user_input)
         if book == nil
@@ -150,3 +154,7 @@ class GameController
     end 
 
 end 
+
+
+#Questions
+#Second time through the game it makes another API call, prints out two of every book.
