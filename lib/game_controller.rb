@@ -118,7 +118,7 @@ class GameController
     def display_description
         self.display_description_text
         user_input = gets.chomp 
-        if user_input.to_i == 0
+        if user_input.to_i == 0  
             book = Book.find_by_name(user_input)
         elsif (1..Book.all.length).include?(user_input.to_i)
             book = Book.all[user_input.to_i - 1]
@@ -127,13 +127,7 @@ class GameController
             sleep 3
             self.display_description
         end
-        if book
-            puts book.description
-        else 
-            puts "The option you have chosen does not seem to exist in this universe, please try again."
-            sleep 3
-            self.display_description
-        end 
+        puts book.description
     end 
 
     def loop_back_or_exit_text
@@ -167,7 +161,3 @@ class GameController
     end 
 
 end 
-
-
-#Questions
-#Second time through the game it makes another API call, prints out two of every book.
