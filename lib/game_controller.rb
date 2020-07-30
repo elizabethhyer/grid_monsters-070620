@@ -1,10 +1,10 @@
 class GameController
 
     def call
-        self.grid_monster_greeting
-        self.user_greeting    
-        sleep 2
-        self.new_location_greeting
+        # self.grid_monster_greeting
+        # self.user_greeting    
+        # sleep 2
+        # self.new_location_greeting
         self.get_books 
         self.list_books
         self.loop_back_or_exit
@@ -120,14 +120,21 @@ class GameController
         user_input = gets.chomp 
         if user_input.to_i == 0  
             book = Book.find_by_name(user_input)
+            if book == nil 
+                puts "Please type the name exactly, or use the appropriate number."
+                self.display_description
+            else 
+                puts book.description
+            end
         elsif (1..Book.all.length).include?(user_input.to_i)
             book = Book.all[user_input.to_i - 1]
+            puts book.description
         else 
+        # elsif book == nil
             puts "The option you have chosen does not seem to exist in this universe, please try again."
             sleep 3
             self.display_description
         end
-        puts book.description
     end 
 
     def loop_back_or_exit_text
