@@ -1,4 +1,4 @@
-#Introduction  
+# Introduction  
 
 Grid Monsters is a simple CLI game that takes user input, tells them they've gone either to the future or past, and prints out a list of books (using the Google Books API) for the user to see more information about.
 
@@ -11,11 +11,11 @@ def very_nervous(name)
 end 
 very_nervous(Elizabeth)
 
-##Getting Started
+## Getting Started
 
 Grid Monsters requires a private key which can be obtained by visiting https://console.developers.google.com/apis/api/books.googleapis.com and requesting a key with a new or existing Google account. Once a key has been generated, you can put your private key in the API class, in the local variable 'key'.
 
-##Installation
+## Installation
 
 To run this application in your local environment, please follow these steps:
 
@@ -24,8 +24,9 @@ cd into the directory
 Run bundle install
 Run bin/run_game
 
-##Sample
+## Sample
 
+```
        ______     _     __   __  ___                 __                      
       / ____/____(_)___/ /  /  |/  /___  ____  _____/ /____  __________      
      / / __/ ___/ / __  /  / /|_/ / __ \/ __ \/ ___/ __/ _ \/ ___/ ___/      
@@ -81,19 +82,17 @@ Alternatively you may type 'see books' to return to the list of books.
 exit
 
 You will now become a part of the lost souls that make up the black hole.
+```
 
-##Contributing
+## Contributing
 
 Bug reports and pull requests are welcome on Github at https://github.com/elizabethhyer/grid_monsters-070620. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-##Authors 
+## Authors 
 
-Elizabeth Hyer - All work 
+Elizabeth Hyer - All work - [ElizabethHyer](https://github.com/elizabethhyer)
 
-##License
+## Acknowledgments
 
-This project is licensed under the MIT License
+I would like to acknowledge [Google Books](https://developers.google.com/books) for continuing to offer their API free of charge.
 
-##Acknowledgments
-
-I would like to acknowledge Google Books for continuing to offer their API free of charge.
