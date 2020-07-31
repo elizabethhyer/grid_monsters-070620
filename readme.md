@@ -20,8 +20,11 @@ Grid Monsters requires a private key which can be obtained by visiting https://c
 To run this application in your local environment, please follow these steps:
 
 Clone this repository
+
 cd into the directory
+
 Run bundle install
+
 Run bin/run_game
 
 ## Sample
