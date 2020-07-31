@@ -95,6 +95,10 @@ Bug reports and pull requests are welcome on Github at https://github.com/elizab
 
 Elizabeth Hyer - All work - [ElizabethHyer](https://github.com/elizabethhyer)
 
+## License 
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
+
 ## Acknowledgments
 
 I would like to acknowledge [Google Books](https://developers.google.com/books) for continuing to offer their API free of charge.
