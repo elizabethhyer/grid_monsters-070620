@@ -1,10 +1,10 @@
 class GameController
 
     def call
-        self.grid_monster_greeting
-        self.user_greeting    
-        sleep 1
-        self.new_location_greeting
+        # self.grid_monster_greeting
+        # self.user_greeting    
+        # sleep 1
+        # self.new_location_greeting
         self.get_books 
         self.list_books
         self.loop_back_or_exit
@@ -31,12 +31,12 @@ class GameController
         user_input = gets.chomp
         if user_input == "forwards" || user_input == "forward" 
             new_location = "The Future"
-        elsif user_input == "Forwards" || user_input == "Forward" 
-            new_location = "The Future"
+        # elsif user_input == "Forwards" || user_input == "Forward" 
+        #     new_location = "The Future"
         elsif user_input == "backwards" || user_input == "backward"
             new_location = "The Horrifying Past"
-        elsif user_input == "Backwards" || user_input == "Backward"
-            new_location = "The Horrifying Past"
+        # elsif user_input == "Backwards" || user_input == "Backward"
+        #     new_location = "The Horrifying Past"
         else 
             puts "\nYou have chosen to exist outside of the confines of time. We ask you kindly to chose a different fate, or face the consequences at your own peril."
             sleep 1
@@ -48,14 +48,14 @@ class GameController
     def monsterfy_names_forward
         puts "\nPlease tell us your name."
         user_input = gets.chomp
-        monster_names_forward = ["#{user_input}, Child of the Machines", "#{user_input}, Invader from the Nether Realms", "#{user_input}, Human Upgrade v.2.0", "#{user_input}...do you know that you are a Replicant?", "#{user_input}, Star Hunter"]
+        monster_names_forward = ["#{user_input} The Cylon", "Dalek #{user_input}", "#{user_input} The Astropath", "Baron #{user_input}", "Darth #{user_input}", "#{user_input}, The Predator", "#{user_input}, Child of the Machines", "#{user_input}, Invader from the Nether Realms", "#{user_input}, Human Upgrade v.2.0", "#{user_input}...do you know that you are a Replicant?", "#{user_input}, Star Hunter"]
         new_name = monster_names_forward.sample
     end 
 
     def monsterfy_names_backward
         puts "\nPlease tell us your name."
         user_input = gets.chomp
-        monster_names_backward = ["Count #{user_input}, Bloodthirsty Lord of the Night", "#{user_input}, Child of the Grave", "#{user_input}, Disciple of the Wolf and Moon", "#{user_input}, Wyvern of the Blue Dragonflight", "#{user_input}, Caller of Cthulu", "#{user_input}, Leader of the Deathly Coven", "#{user_input}, Butcher of the Bay"]
+        monster_names_backward = ["Count #{user_input}, Bloodthirsty Lord of the Night", "#{user_input}, Child of the Grave", "#{user_input}, Disciple of the Wolf and Moon", "#{user_input}, Wyvern of the Blue Dragonflight", "#{user_input}, Caller of Cthulu", "#{user_input}, Leader of the Deathly Coven", "#{user_input}, Butcher of the Bay", "The Dreaded Vampire #{user_input}", "#{user_input}, The Alchemist"]
         new_name = monster_names_backward.sample
     end 
 
@@ -101,16 +101,20 @@ class GameController
         user_input = gets.chomp
         if user_input.to_i == 0  
             book = Book.find_by_name(user_input.split.map(&:capitalize).join(' ')) 
-            # puts book.description
+            if book == nil 
+                puts "\nPlease type the name exactly, or use the appropriate number."
+                self.display_description
+            else 
+                puts book.description
+            end
         elsif (1..Book.all.length).include?(user_input.to_i)
             book = Book.all[user_input.to_i - 1]
-            # puts book.description
+            puts book.description
         else 
             puts "\nThe option you have chosen does not seem to exist in this universe, please try again."
             sleep 1
             self.display_description
         end
-        puts book.description
     end
 
     def loop_back_or_exit_text
@@ -141,11 +145,3 @@ class GameController
     end 
 
 end 
-
-
-# if book == nil 
-            #     puts "\nPlease type the name exactly, or use the appropriate number."
-            #     self.display_description
-            # else 
-            #     puts book.description
-            # end
