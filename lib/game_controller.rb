@@ -1,10 +1,11 @@
 class GameController
 
     def call
-        # self.grid_monster_greeting
-        # self.user_greeting    
-        # sleep 1
-        # self.new_location_greeting
+        self.grid_monster_greeting
+        self.user_greeting    
+        sleep 1
+        self.change_location
+        self.new_location_greeting
         self.get_books 
         self.list_books
         self.loop_back_or_exit
@@ -28,21 +29,18 @@ class GameController
 
     def change_location
         puts "\nPlease tell our scientists whether you would like to go forwards or backwards in time."
+        puts "\nPlease select '1' for The Future, or '2' for The Past."
         user_input = gets.chomp
-        if user_input == "forwards" || user_input == "forward" 
-            new_location = "The Future"
-        # elsif user_input == "Forwards" || user_input == "Forward" 
-        #     new_location = "The Future"
-        elsif user_input == "backwards" || user_input == "backward"
-            new_location = "The Horrifying Past"
-        # elsif user_input == "Backwards" || user_input == "Backward"
-        #     new_location = "The Horrifying Past"
+        if user_input.to_i == 1
+            @@new_location = "The Future"
+        elsif user_input.to_i == 2
+            @@new_location = "The Horrifying Past"
         else 
             puts "\nYou have chosen to exist outside of the confines of time. We ask you kindly to chose a different fate, or face the consequences at your own peril."
             sleep 1
             change_location
         end 
-        new_location
+        @@new_location 
     end
 
     def monsterfy_names_forward
@@ -60,11 +58,10 @@ class GameController
     end 
 
     def new_location_greeting
-        new_location = self.change_location
-        if new_location == "The Future"
+        if @@new_location == "The Future"
             location = "The Future" 
             name = self.monsterfy_names_forward
-        else new_location == "The Horrifying Past"
+        elsif @@new_location == "The Horrifying Past"
             location = "The Horrifying Past"
             name = self.monsterfy_names_backward
         end 
